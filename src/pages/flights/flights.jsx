@@ -1,8 +1,15 @@
 import React from 'react';
+import exploreWorld from '../../../public/exploreYourWorld.png';
 
 function Flights() {
     return (
-        <div>Flights</div>
+        <main>
+            <section>
+                <img src={exploreWorld} alt="" />
+            </section>
+            <section>
+            </section>
+        </main>
     )
 }
 
