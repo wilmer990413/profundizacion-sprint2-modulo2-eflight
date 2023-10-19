@@ -1,0 +1,148 @@
+.main-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+  display: flex;
+  
+  }
+
+  
+  @media (max-width: 991px) {
+    .main-container {
+      max-width: 100%;
+    }
+  }
+  .image-wrapper {
+    align-self: center;
+    display: flex;
+    margin-top: -1px;
+    margin-bottom: 1px;
+    width: 100%;
+    max-width: 1176px;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 20px;
+  }
+  @media (max-width: 991px) {
+    .image-wrapper {
+      max-width: 100%;
+      flex-wrap: wrap;
+    }
+  }
+  .flight-info {
+    align-self: stretch;
+    display: flex;
+    margin-top: 1px;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+  }
+  .flight-image {
+    aspect-ratio: 1;
+    object-fit: cover;
+    object-position: center;
+    width: 35px;
+    overflow: hidden;
+    align-self: start;
+  }
+  .flight-name {
+    color: #6c6cfe;
+    font-family: Sarabun, sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 150%;
+    align-self: start;
+    margin-top: 3px;
+    white-space: nowrap;
+  }
+  @media (max-width: 991px) {
+    .flight-name {
+      white-space: initial;
+    }
+  }
+  .currency-info {
+    align-self: stretch;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 16px;
+  }
+  @media (max-width: 991px) {
+    .currency-info {
+      justify-content: center;
+    }
+  }
+  .currency {
+    color: #171a1f;
+    text-align: right;
+    font-family: Sarabun, sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 166.67%;
+    text-transform: uppercase;
+    align-self: center;
+    margin-top: auto;
+    margin-bottom: auto;
+  }
+  .currency-icon {
+    aspect-ratio: 1;
+    object-fit: cover;
+    object-position: center;
+    width: 20px;
+    overflow: hidden;
+    align-self: center;
+    margin-top: auto;
+    margin-bottom: auto;
+  }
+  .currency-icon:last-child {
+    width: 36px;
+    justify-content: center;
+    align-items: center;
+  }
+
+  //Menú 
+
+  .menu-link {
+    color: #6c6cfe;
+    font-family: Sarabun, sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 150%;
+    text-decoration: none;
+    white-space: nowrap;
+    margin-top: 3px;
+    transition: color 0.3s ease-in-out;
+    border: 1px solid #6c6cfe;
+    border-radius: 10px;
+    padding: 5px 15px;
+  }
+  
+  .menu-link:hover {
+    color: #fff;
+    background-color: #6c6cfe;;
+  }
+  
+ 
+  @media (max-width: 991px) {
+    .main-container {
+      max-width: 100%;
+    }
+  }
+
+  .menu-item {
+    list-style: none; 
+    display: inline-block; 
+    margin-right: 20px; 
+  }
+
+  .mainIcon{
+    width: 30px;
+  }
+
+.currencyIcon{
+  width: 30px;
+  cursor: pointer;
+}
+
+  
