@@ -1,6 +1,9 @@
-import {React, useState} from 'react';
+import {React, useEffect, useState} from 'react';
 import exploreWorld from '../../../public/exploreYourWorld.png';
 import iconFilter from '../../../public/icon-filter.png';
+import {listFlights} from '../../services/flights.js';
+import {FindAirlinesById} from '../../services/airlines.js';
+import Flight from './flight';
 import './flights.scss';
 import {
     Accordion,
@@ -9,28 +12,62 @@ import {
     AccordionPanel,
     AccordionIcon,
     Box,
-    Slider,
-    SliderTrack,
-    SliderFilledTrack,
-    SliderThumb,
-    SliderMark,
+    RangeSlider,
+    RangeSliderTrack,
+    RangeSliderFilledTrack,
+    RangeSliderThumb,
     Radio, 
     RadioGroup,
     Stack,
     Card,
     CardBody,
     Checkbox,
-    CheckboxGroup
+    CheckboxGroup,
+    Progress,Text 
 } from '@chakra-ui/react'
 
 function Flights() {
-    const [sliderValue, setSliderValue] = useState(50)
-    const labelStyles = {
-        mt: '2',
-        ml: '-2.5',
-        fontSize: 'sm',
-    }
-    const [value, setValue] = useState('1')
+    const [data, setData] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [ascendingOrder, setAscendingOrder] = useState();
+    const [range, setRange] = useState([0, 22]);
+    const handleSliderChange = (newRange) => {
+        setRange(newRange);
+    };
+    const handleRadioButtonClick = () => {
+        setAscendingOrder(!ascendingOrder);
+        const sortedData = data.sort((a, b) => {
+            if (ascendingOrder) {
+                return a.precio - b.precio;
+            } else {
+                return b.precio - a.precio;
+            }
+        });
+        console.log("ORDENADO SEGUN CORRESPONDA",sortedData);
+        setData(sortedData);
+    };
+    const flightsData = async () => {
+        try {
+            const response = await listFlights();
+            const loadingInfoEmpre = response.map( async (element, index)=>{
+                const empresa = await FindAirlinesById(element.empresa);
+                response[index].nombre_empresa = empresa.nombre;
+                response[index].imagen_empresa = empresa.image;
+            });
+            await Promise.all(loadingInfoEmpre);
+            setData(response);
+            if(response){
+                setLoading(false);
+            }
+            setAscendingOrder('');
+        } catch (error) {
+            console.error('Error al hacer la solicitud a la API:', error);
+            setLoading(false);
+        }
+    };
+    useEffect(() => {
+        flightsData();
+    }, []);
     return (
         <main className='flights__main'>
             <section className='flights__banner'>
@@ -40,28 +77,28 @@ function Flights() {
             </section>
             <section className='flights__container'>
                 <article className='flights__filters'>
-                    <Card>
+                    <Card className='flights__filters--card'>
                         <CardBody>
                             <div className='flights__filters--title'>
-                                <img src={iconFilter} alt="" />
+                                <img src={iconFilter}/>
                                 <p>Sort by</p>
-                                <label>Reset</label>
+                                <label onClick={flightsData}>Reset</label>
                             </div>
                             <Accordion allowMultiple>
                                 <AccordionItem>
                                     <h2>
                                         <AccordionButton>
-                                            <Box as="span" flex='1' textAlign='left'>
+                                            <Box as="span" flex='1' textAlign='left' fontWeight={700} >
                                                 Price
                                             </Box>
-                                            <AccordionIcon />
+                                            <AccordionIcon color='#11D396' />
                                         </AccordionButton>
                                     </h2>
-                                    <AccordionPanel pb={4}>
-                                        <RadioGroup onChange={setValue} value={value}>
+                                    <AccordionPanel>
+                                        <RadioGroup value={ascendingOrder} onChange={handleRadioButtonClick}>
                                             <Stack>
-                                                <Radio value='1'>Lowest price</Radio>
-                                                <Radio value='2'>Highest price</Radio>
+                                                <Radio value={false}>Lowest price</Radio>
+                                                <Radio value={true}>Highest price</Radio>
                                             </Stack>
                                         </RadioGroup>
                                     </AccordionPanel>
@@ -72,7 +109,7 @@ function Flights() {
                     <Card>
                         <CardBody>
                             <div className='flights__filters--title'>
-                                <img src={iconFilter} alt="" />
+                                <img src={iconFilter} />
                                 <p>Filters</p>
                                 <label>Reset</label>
                             </div>
@@ -80,37 +117,44 @@ function Flights() {
                                 <AccordionItem>
                                     <h2>
                                         <AccordionButton>
-                                            <Box as="span" flex='1' textAlign='left'>
+                                            <Box as="span" flex='1' textAlign='left' fontWeight={700}>
                                                 No. of transit
                                             </Box>
-                                            <AccordionIcon />
+                                            <AccordionIcon color='#11D396' />
                                         </AccordionButton>
                                     </h2>
-                                    <AccordionPanel pb={4}>
+                                    <AccordionPanel  pb={4}>
                                         <CheckboxGroup>
-                                            <Checkbox defaultChecked>
-                                                <p>Direct</p>
-                                                <p>30 USD</p>
-                                            </Checkbox>
-                                            <Checkbox>
-                                                <p>1 transit</p>
-                                                <p>45 USD</p>
-                                            </Checkbox>
+                                            <Checkbox className='flights__filters--checkbox'>
+                                                <div>
+                                                    <p>Direct</p> <span>30 USD</span>
+                                                </div>
+                                            </Checkbox><br/>
+                                            <Checkbox className='flights__filters--checkbox'>
+                                                <div>
+                                                    <p>1 transit</p> <span>45 USD</span>
+                                                </div>
+                                            </Checkbox><br/>
+                                            <Checkbox className='flights__filters--checkbox'>
+                                                <div>
+                                                    <p>2 transit</p> <span>60 USD</span>
+                                                </div>
+                                            </Checkbox><br/>
                                         </CheckboxGroup>
                                     </AccordionPanel>
                                 </AccordionItem>
                                 <AccordionItem>
                                     <h2>
                                         <AccordionButton>
-                                            <Box as="span" flex='1' textAlign='left'>
+                                            <Box as="span" flex='1' textAlign='left' fontWeight={700}>
                                                 Transit point
                                             </Box>
-                                            <AccordionIcon />
+                                            <AccordionIcon color='#11D396' />
                                         </AccordionButton>
                                     </h2>
                                     <AccordionPanel pb={4}>
                                         <CheckboxGroup>
-                                            <Checkbox defaultChecked>
+                                            <Checkbox>
                                                 <p>Osaka (ITM)</p>
                                             </Checkbox>
                                             <Checkbox>
@@ -122,37 +166,43 @@ function Flights() {
                                 <AccordionItem>
                                     <h2>
                                         <AccordionButton>
-                                            <Box as="span" flex='1' textAlign='left'>
+                                            <Box as="span" flex='1' textAlign='left' fontWeight={700}>
                                                 Transit duration
                                             </Box>
-                                            <AccordionIcon />
+                                            <AccordionIcon color='#11D396' />
                                         </AccordionButton>
                                     </h2>
                                     <AccordionPanel>
                                         <Box pt={6} pb={2}>
-                                            <Slider min={0} max={22} aria-label='slider-ex-6' onChange={(val) => setSliderValue(val)}>
-                                                <SliderMark value={0} {...labelStyles}>
+                                            <RangeSlider
+                                                min={0}
+                                                max={22}
+                                                aria-label={['min', 'max']}
+                                                defaultValue={range}
+                                                step={1}
+                                                colorScheme='purple'
+                                                onChange={handleSliderChange}
+                                            >
+                                                <RangeSliderTrack>
+                                                    <RangeSliderFilledTrack />
+                                                </RangeSliderTrack>
+                                                <RangeSliderThumb index={0} />
+                                                <RangeSliderThumb index={1} />
+                                            </RangeSlider>
+                                            <div className='flights__filters--slider'>
+                                                <Text>
                                                     0h
-                                                </SliderMark>
-                                                <SliderMark value={22} {...labelStyles}>
+                                                </Text>
+                                                <Text color='#6C6CFE' fontWeight={700}>
+                                                    {range[0]==0? '' : `${range[0]} h`}
+                                                </Text>
+                                                <Text color='#6C6CFE' fontWeight={700}>
+                                                    {range[1]==22? '' : `${range[1]} h`}
+                                                </Text>
+                                                <Text>
                                                     22h
-                                                </SliderMark>
-                                                <SliderMark
-                                                    value={sliderValue}
-                                                    textAlign='center'
-                                                    bg='blue.500'
-                                                    color='white'
-                                                    mt='-10'
-                                                    ml='-5'
-                                                    w='12'
-                                                >
-                                                    {sliderValue}h
-                                                </SliderMark>
-                                                <SliderTrack>
-                                                    <SliderFilledTrack />
-                                                </SliderTrack>
-                                                <SliderThumb />
-                                            </Slider>
+                                                </Text>
+                                            </div>
                                         </Box>
                                     </AccordionPanel>
                                 </AccordionItem>
@@ -160,7 +210,18 @@ function Flights() {
                         </CardBody>
                     </Card>
                 </article>
-                <article>
+                <article className='flights__content'>
+                    {
+                        loading == true || data.length == 0? 
+                        <Progress colorScheme='whatsapp' isIndeterminate /> : 
+                        !ascendingOrder?
+                            data.map((element, index)=>{
+                                return  <Flight key={index} flights={element}/>
+                            })
+                            : data.map((element, index)=>{
+                                return  <Flight key={index} flights={element}/>
+                            })
+                    }
                 </article>
             </section>
         </main>
