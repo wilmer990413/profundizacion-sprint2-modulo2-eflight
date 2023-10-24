@@ -1,0 +1,431 @@
+.booking {
+    width: 100%;
+    height: 600px;
+    padding: 40px;
+    display: flex;
+
+    &__left {
+        width: 70%;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+        h3 {
+            color: #171A1F;
+            font-family: Sarabun;
+            font-size: 32px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 48px;
+        }
+
+        &--line {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            div {
+                width: 12px;
+                height: 12px;
+                flex-shrink: 0;
+                border-radius: 50%;
+                background-color: #11D295;
+            }
+
+            span {
+                width: 197px;
+                height: 4px;
+                flex-shrink: 0;
+                background-color: #11D295;
+            }
+        }
+
+        &--info {
+
+            &__booked {
+                display: flex;
+                gap: 5px;
+                color: #6C6CFE;
+                font-family: Sarabun;
+                font-size: 20px;
+                font-style: normal;
+                font-weight: 600;
+                line-height: 30px;
+
+                svg {
+                    margin-top: 5px;
+                }
+            }
+
+            &__present {
+                color: #565E6C;
+                font-family: Sarabun;
+                font-size: 14px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: 22px;
+            }
+        }
+
+        &--ticket {
+            width: 782px;
+            height: 330px;
+            background-image: url('./image/img-ticket.png');
+            background-size: cover;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+
+            &__info {
+                width: 90%;
+                display: flex;
+                justify-content: space-between;
+
+                &--aerolinea {
+                    display: flex;
+                    gap: 5px;
+                    justify-content: center;
+                    align-items: center;
+
+                    figure {
+                        width: 28px;
+                        height: 28px;
+                        padding: 5px;
+                        border-radius: 4px;
+                        background-color: #0D78C8;
+                    }
+                }
+
+                &--maleta {
+                    display: flex;
+                    gap: 10px;
+                    justify-content: center;
+                    align-items: center;
+                    padding-right: 10px;
+                    margin-left: 120px;
+
+                    span {
+                        width: 48px;
+                        height: 28px;
+                        padding: 4px 9px 4px 8px;
+                        border-radius: 14px;
+                        background-color: #DDE0E5;
+                        color: #171A1F;
+                        font-family: Sarabun;
+                        font-size: 12px;
+                        font-style: normal;
+                        font-weight: 400;
+                        line-height: 20px;
+                    }
+                }
+
+                &--avion {
+                    display: flex;
+                    color: #FEFEFE;
+                    font-family: Sarabun;
+                    font-size: 20px;
+                    font-style: normal;
+                    font-weight: 600;
+                    line-height: 30px;
+                    justify-content: center;
+                    text-align: center;
+
+                    img {
+                        width: 36px;
+                        height: 35px;
+                        margin-right: 10px;
+                    }
+                }
+            }
+
+            &__class {
+                display: flex;
+                gap: 5px;
+                color: #FE902B;
+                font-family: Sarabun;
+                font-size: 14px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: 22px;
+            }
+
+            &__infoCity {
+                width: 90%;
+                display: flex;
+                justify-content: space-between;
+                &--city {
+                    display: flex;
+                    flex-direction: column;
+
+                    &__hour {
+                        color: #2424FE;
+                        font-family: Sarabun;
+                        font-size: 32px;
+                        font-style: normal;
+                        font-weight: 500;
+                        line-height: 48px;
+                    }
+
+                    &__origin {
+                        color: #171A1F;
+                        font-family: Sarabun;
+                        font-size: 14px;
+                        font-style: normal;
+                        font-weight: 500;
+                        line-height: 22px;
+                    }
+
+                    &__date {
+                        color: #8F949F;
+                        font-family: Sarabun;
+                        font-size: 14px;
+                        font-style: normal;
+                        font-weight: 400;
+                        line-height: 22px;
+                    }
+                }
+
+                &--idBooking {
+                    display: flex;
+                    flex-direction: column;
+                    color: #6E7786;
+                    font-family: Sarabun;
+                    font-style: normal;
+                    font-weight: 500;
+
+                    &--text {
+                        font-size: 14px;
+                        line-height: 22px;
+                    }
+
+                    &--codigo {
+                        font-size: 24px;
+                        line-height: 36px;
+                    }
+                }
+            }
+
+            &__timeFlight {
+                width: 50%;
+
+                &--line {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+
+                    div {
+                        width: 8px;
+                        height: 8px;
+                        flex-shrink: 0;
+                        border: 1px solid #6C6CFE;
+                        border-radius: 50%;
+                    }
+
+                    .circle {
+                        background-color: #FE902B;
+                    }
+                }
+
+                &--time {
+                    text-align: center;
+                    color: #171A1F;
+                    font-family: Sarabun;
+                    font-size: 14px;
+                    font-style: normal;
+                    font-weight: 400;
+                    line-height: 22px
+                }
+
+            }
+
+            &__infoChecking {
+                width: 70%;
+                display: flex;
+                justify-content: space-between;
+                padding-right: 10px;
+
+                &--checking {
+                    color: #171A1F;
+                    font-family: Sarabun;
+                    font-size: 14px;
+                    font-style: normal;
+                    font-weight: 400;
+                    line-height: 22px;
+                }
+
+                &--allTime {
+                    color: #6E7786;
+                    font-family: Sarabun;
+                    font-size: 14px;
+                    font-style: normal;
+                    font-weight: 400;
+                    line-height: 22px;
+                }
+            }
+        }
+    }
+
+    &__right {
+        width: 25%;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-bottom: 20px;
+        &--detailsPrice {
+            width: 328px;
+            height: 300px;
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+            border-radius: 8px;
+            background: #FEFEFE;
+            box-shadow: 0px 0px 1px 0px rgba(23, 26, 31, 0.07), 0px 0px 2px 0px rgba(23, 26, 31, 0.12);
+
+            .price {
+                display: flex;
+                text-align: center;
+                padding: 5px;
+                font-size: 20px;
+                font-style: normal;
+                font-weight: 700;
+                line-height: 30px;
+
+                img {
+                    margin-bottom: 5px;
+                }
+            }
+
+            &__price {
+                display: flex;
+                padding: 10px;
+                justify-content: space-between;
+                color: #323842;
+                font-family: Sarabun;
+                font-size: 14px;
+                font-style: normal;
+                font-weight: 500;
+                line-height: 22px;
+
+                &__left {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 12px;
+
+                    .save {
+                        color: #FE902B;
+                    }
+                }
+
+                &__right {
+                    display: flex;
+                    flex-direction: column;
+                    text-align: end;
+                    gap: 12px;
+
+                    .save {
+                        color: #FE902B;
+                    }
+                }
+            }
+
+            .hr {
+                width: 288px;
+                color: #BBC0C9;
+                margin-left: 20px;
+            }
+        }
+
+        &--detailsCity {
+            width: 328px;
+            height: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+            border-radius: 8px;
+            background: #FEFEFE;
+            box-shadow: 0px 0px 1px 0px rgba(23, 26, 31, 0.07), 0px 0px 2px 0px rgba(23, 26, 31, 0.12);
+            .city {
+                display: flex;
+                text-align: center;
+                padding: 5px;
+                font-size: 20px;
+                font-style: normal;
+                font-weight: 700;
+                line-height: 30px;
+
+                img {
+                    margin-bottom: 5px;
+                }
+            }
+
+            &__details {
+                display: flex;
+                padding: 10px;
+                justify-content: space-between;
+                color: #323842;
+                font-family: Sarabun;
+                font-size: 14px;
+                font-style: normal;
+                font-weight: 500;
+                line-height: 22px;
+
+                &__left {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 12px;
+
+                    .save {
+                        color: #FE902B;
+                    }
+                }
+
+                &__right {
+                    &__right {
+                        display: flex;
+                        flex-direction: column;
+                        text-align: end;
+                        gap: 12px;
+
+                        .save {
+                            color: #FE902B;
+                        }
+                    }
+                }
+
+.aerolina{
+    display: flex;
+    gap: 5px;
+    justify-content: center;
+    align-items: center;
+
+    figure {
+        width: 28px;
+        height: 28px;
+        padding: 5px;
+        border-radius: 4px;
+        background-color: #0D78C8;
+    }
+}
+            }
+
+            .hr {
+                width: 288px;
+                color: #BBC0C9;
+                margin-left: 20px;
+            }
+
+            .refun {
+                display: flex;
+                flex-direction: column;
+                padding: 10px;
+                color: #0EA676;
+                font-size: 14px;
+                font-style: normal;
+                font-weight: 500;
+                line-height: 22px;
+            }
+        }
+    }
+}
