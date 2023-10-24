@@ -1,0 +1,30 @@
+.FromPayments-container {
+    display: flex; /* Establece el diseño como flexbox */
+    align-items: flex-start; /* Alinea los elementos en la parte superior */
+    margin: 0; /* Quita el margen */
+    padding: 5px; /* Establece el padding a 5px en todos los lados */
+    gap: 30px;
+  }
+  
+  .FromPayments-container{
+    flex: 1; /* Toma el espacio disponible */
+  }
+  
+  .listaFromPayments-container {
+    text-align: left;
+    flex: 1; /* Toma el espacio disponible */
+  }
+  
+  /* Aplicar estilo para dispositivos más pequeños (por ejemplo, teléfonos) */
+  @media (max-width: 768px) {
+    .my-booking-container {
+        display: flex;
+      flex-direction: column-reverse; /* Cambia a disposición en columna */
+      justify-content: center;
+
+    }
+    .home-container,
+    .lista-container {
+      width: 100%; /* Ocupa todo el ancho disponible en dispositivos móviles */
+    }
+  }

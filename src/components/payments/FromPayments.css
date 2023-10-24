@@ -1,0 +1,29 @@
+.padre{
+  gap: 40px;
+}
+
+.form{
+  gap: 30px;
+}
+.title {
+  margin-bottom: 20px;
+  font-weight: bold;
+  font-size: 40px;
+}
+
+  .cont {
+ 
+    display: flex;
+    flex-direction: row;
+    width: 60%;
+    gap: 10px;
+   
+  }
+  @media (max-width: 700px) {
+
+    .cont {
+        display: flex;
+        flex-direction: column;
+       
+      }
+  }
