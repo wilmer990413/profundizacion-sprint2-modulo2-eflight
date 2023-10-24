@@ -3,7 +3,6 @@ import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
 const Register = () => {
-
     const [id, idchange] = useState("");
     const [name, namechange] = useState("");
     const [password, passwordchange] = useState("");
@@ -11,9 +10,7 @@ const Register = () => {
     const [phone, phonechange] = useState("");
     const [date, datechange] = useState("");
     const [gender, genderchange] = useState("femenino");
-
     const navigate = useNavigate();
-
     const IsValidate = () => {
         let isproceed = true;
         let errormessage = 'Ingresa un valor en ';
@@ -33,12 +30,10 @@ const Register = () => {
             isproceed = false;
             errormessage += ' Email';
         }
-
         if(!isproceed){
             toast.warning(errormessage)
         }else{
             if(/^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/.test(email)){
-
             }else{
                 isproceed = false;
                 toast.warning('Porfavor ingresa un Email Valido')
@@ -46,16 +41,14 @@ const Register = () => {
         }
         return isproceed;
     }
-
-
     const handlesubmit = (e) => {
             e.preventDefault();
             let regobj = { id, name, password, email, phone, date, gender };
             if (IsValidate()) {
             //console.log(regobj);
-            fetch("http://localhost:8000/user", {
+            fetch("http://localhost:3000/user", {
                 method: "POST",
-                headers: { 'content-type': 'application/json' },
+                headers: { 'content-type': 'application/ json' },
                 body: JSON.stringify(regobj)
             }).then((res) => {
                 toast.success('Registered successfully.')
@@ -74,7 +67,6 @@ const Register = () => {
                             <h1>Registro de Usuario</h1>
                         </div>
                         <div className="card-body">
-
                             <div className="row">
                                 <div className="col-lg-6">
                                     <div className="form-group">
@@ -122,9 +114,7 @@ const Register = () => {
                                         <label>Femenino</label>
                                     </div>
                                 </div>
-
                             </div>
-
                         </div>
                         <div className="card-footer">
                             <button type="submit" className="btn btn-primary">Registrar</button> |
@@ -133,8 +123,6 @@ const Register = () => {
                     </div>
                 </form>
             </div>
-
-
         </div>
     );
 }

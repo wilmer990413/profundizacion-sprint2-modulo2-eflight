@@ -5,11 +5,12 @@ import {BrowserRouter} from "react-router-dom";
 import { ChakraProvider } from '@chakra-ui/react'
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import 'react-toastify/dist/ReactToastify.css';
-import App from './pages/login/App.jsx';
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
+ReactDOM.createRoot(document.getElementById('root')).render(
+  <ChakraProvider>
+    <BrowserRouter>
+      <NavRoutes /> 
+    </BrowserRouter>
+  </ChakraProvider>
+  ,
+)
