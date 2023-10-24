@@ -1,11 +1,13 @@
 import React from "react";
 import useFormData from "../../Hooks/useForm";
-import { AddIcon } from "@chakra-ui/icons";
+import { AddIcon, InfoOutlineIcon, ViewIcon } from "@chakra-ui/icons";
 import "./Form.css";
 import Title from "../title/Title";
 import InputWithValidation from "../input/InputWithValidation";
 import SelectWithValidation from "../select/SelectWithValidation";
 import { Link } from "react-router-dom";
+import CustomAlert from "../alert/CustomAlert";
+import { Button } from "@chakra-ui/react";
 
 function Formulario() {
   const { formData, handleInputChange, submitForm } = useFormData();
@@ -17,12 +19,23 @@ function Formulario() {
 
   return (
     <>
-      <h2>Home</h2>
       <form
         className="form"
         onSubmit={handleFormSubmit}
         style={{ display: "flex", flexDirection: "column" }}
       >
+        <h1>MyBoking</h1>
+        <Title
+          iconName={InfoOutlineIcon}
+          text="Passenger details"
+          iconColor="blue.500"
+          textColor="blue.500"
+          textSize="30px" // Tamaño del texto
+        />
+        <p style={{ color: "#565E6C" }}>
+          Name as on ID card/passport without title and punctuation
+        </p>
+
         <div className="cont">
           <InputWithValidation
             label="Nombre"
@@ -74,11 +87,13 @@ function Formulario() {
           />
         </div>
         <Title
-          iconName={AddIcon}
-          text="Identidad"
+          iconName={ViewIcon}
+          text="Identity"
           iconColor="blue.500"
           textColor="blue.500"
+          textSize="30px" // Tamaño del texto
         />
+        <CustomAlert />
         <InputWithValidation
           label="passportNumber"
           type="text"
@@ -108,12 +123,7 @@ function Formulario() {
             placeholder="input Texto"
           />
         </div>
-        <Title
-          iconName={AddIcon}
-          text="Contact details"
-          iconColor="blue.500"
-          textColor="blue.500"
-        />
+
         <div className="cont">
           <InputWithValidation
             label="Nombre"
@@ -164,10 +174,9 @@ function Formulario() {
             placeholder="Texto"
           />
         </div>
-
-        <button type="submit">
+        <Button colorScheme="green">
           <Link to="/Payments">Mostrar Datos</Link>
-        </button>
+        </Button>
       </form>
     </>
   );

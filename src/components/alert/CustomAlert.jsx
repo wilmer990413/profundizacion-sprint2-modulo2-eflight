@@ -1,15 +1,10 @@
 import React from "react";
 import { Alert, Box, chakra } from "@chakra-ui/react";
 
-function Alert() {
+function CustomAlert() {
   return (
     <Box display="flex" justifyContent="flex-end">
-      <Alert
-        status="info"
-        colorScheme="blue"
-        w="100%"
-        bg="#D8D8FF" // Fondo más claro
-      >
+      <Alert status="info" colorScheme="#e8f0fd" w="100%" bg="#D8D8FF">
         <chakra.p color="#6C6CFE">
           Passport valid for at least 6 months from departure date is required
           for international travel or transit abroad. Make sure that the
@@ -22,4 +17,4 @@ function Alert() {
   );
 }
 
-export default Alert;
+export default CustomAlert;
