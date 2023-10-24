@@ -6,13 +6,6 @@ import transito from '../../../public/transito.png';
 import avion from '../../../public/avion.png';
 
 function Flight({flights}) {
-    console.log(flights);
-    const selectionFlight = () => {
-        props.history.push({
-            pathname: '/MyBooking',
-            state: { flights },
-        });
-    };
     const fechaInicio = new Date(flights.fecha_salida);
     const fechaFin = new Date(flights.fecha_llegada);
     const diferenciaEnMilisegundos = fechaFin - fechaInicio;
@@ -44,10 +37,12 @@ function Flight({flights}) {
             </div>
             <div className='flights__content--price'>
                 <div>
-                    <p>{flights.precio} COP</p>
+                    <p>{flights.detalles_precio.precio} COP</p>
                     <span>/ pax</span>
                 </div>
-                <Link className='flights__content--price--button'  to="/MyBooking" onClick={selectionFlight} >Choose</Link>
+                <Link className='flights__content--price--button'  
+                    to={{pathname: '/MyBooking',
+                    state: { flights }}} >Choose</Link>
             </div>
         </div>
     )

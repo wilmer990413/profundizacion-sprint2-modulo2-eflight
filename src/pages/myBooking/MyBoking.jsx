@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 
 import "./MyBooking.css"; // Importa el archivo CSS para estilizar el componente
 import Formulario from "../../components/Form/Formulario";

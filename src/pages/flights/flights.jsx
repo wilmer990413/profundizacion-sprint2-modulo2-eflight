@@ -38,9 +38,9 @@ function Flights() {
         setAscendingOrder(!ascendingOrder);
         const sortedData = data.sort((a, b) => {
             if (ascendingOrder) {
-                return a.precio - b.precio;
+                return a.detalles_precio.precio - b.detalles_precio.precio;
             } else {
-                return b.precio - a.precio;
+                return b.detalles_precio.precio - a.detalles_precio.precio;
             }
         });
         console.log("ORDENADO SEGUN CORRESPONDA",sortedData);
