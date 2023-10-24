@@ -1,0 +1,17 @@
+.contenedor {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+  }
+  
+  .columna-left {
+    text-align: left;
+    flex: 1;
+  }
+  
+  .columna-right {
+    text-align: right;
+    flex: 1;
+  }
+  

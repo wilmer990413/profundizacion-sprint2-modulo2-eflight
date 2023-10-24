@@ -1,0 +1,77 @@
+{
+  "vuelos": [
+    {
+      "id": "1",
+      "origen": "Ciudad de Origen",
+      "destino": "Ciudad de Destino",
+      "fecha_salida": "2023-10-10T08:00:00Z",
+      "fecha_llegada": "2023-10-10T10:30:00Z",
+      "disponibilidad": 50,
+      "asientos": {
+        "clase_economica": {
+          "filas": 10,
+          "asientos_por_fila": 6,
+          "asientos_disponibles": [
+            [
+              "A1",
+              "A2",
+              "A3",
+              "A4",
+              "A5",
+              "A6"
+            ],
+            [
+              "B1",
+              "B2",
+              "B3",
+              "B4",
+              "B5",
+              "B6"
+            ]
+          ]
+        }
+      },
+      "detalles_precio": {
+        "precio": 300,
+        "tarifa_basica_adultos": 250,
+        "impuesto": 25,
+        "precio_total_regular": 300,
+        "ahorro": 0.15
+      }
+    }
+  ],
+  "tickets": [
+    {
+      "id": "12345",
+      "nombre": "Nombre",
+      "apellido": "Apellido",
+      "titulo": "Sr.",
+      "cumpleaños": "1990-01-15",
+      "nacionalidad": "Nacionalidad",
+      "identidad": "1234567890",
+      "numero_transporte": "ABC123",
+      "pais_emision": "País de Emisión",
+      "fecha_vencimiento_pasaporte": "2025-01-15",
+      "nombre_de_contacto": "Nombre de Contacto",
+      "apellido_de_contacto": "Apellido de Contacto",
+      "titulo_de_contacto": "Sra.",
+      "correo": "correo@example.com",
+      "numero_telefono": "+1234567890",
+      "vuelo_id": "1",
+      "fecha_compra": "2023-10-05T15:30:00Z",
+      "asiento": "A3"
+    }
+  ],
+  "metodos_de_pago": [
+    {
+      "tipo": "Tarjeta de Crédito",
+      "nombre_de_tarjeta": "Nombre del Titular",
+      "numero_de_tarjeta": "1234 5678 9012 3456",
+      "fecha_de_caducidad": "12/25",
+      "cvv": "123",
+      "direccion": "Calle Ejemplo, Número 123",
+      "codigo_postal": "12345",
+      "nacionalidad_del_titular": "Nacionalidad del Titular"
+    }
+  ]
+}
