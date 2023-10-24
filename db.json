@@ -1,0 +1,13 @@
+{
+  "user": [
+    {
+      "id": "pablo880522",
+      "name": "Juan Pablo Contreras Ospin",
+      "password": "1234",
+      "email": "juan99@gmail.com",
+      "phone": "3105535293",
+      "date": "1999-05-08",
+      "gender": "masculino"
+    }
+  ]
+}

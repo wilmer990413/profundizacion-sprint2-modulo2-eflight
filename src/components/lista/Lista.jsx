@@ -5,7 +5,7 @@ const Lista = () => {
   const [detallesPrecio, setDetallesPrecio] = useState(null);
 
   useEffect(() => {
-    fetch("http://localhost:301/vuelos")
+    fetch("http://localhost:3000/vuelos")
       .then((response) => response.json())
       .then((data) => {
         const detallesPrecio = data[0].detalles_precio;
