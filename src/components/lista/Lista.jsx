@@ -23,7 +23,7 @@ const Lista = () => {
   }
 
   return (
-    <div>
+    <div className="div">
       <h1 className="h1">Price details</h1>
       <hr />
       <Columna
