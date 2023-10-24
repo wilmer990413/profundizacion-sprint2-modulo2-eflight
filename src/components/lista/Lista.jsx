@@ -6,7 +6,7 @@ const Lista = () => {
   const [detallesPrecio, setDetallesPrecio] = useState(null);
 
   useEffect(() => {
-    fetch("http://localhost:3000/vuelos")
+    fetch("https://miniback-books-app-i9fd.onrender.com/vuelos")
       .then((response) => response.json())
       .then((data) => {
         const detallesPrecio = data[0].detalles_precio;

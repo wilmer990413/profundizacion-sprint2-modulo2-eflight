@@ -1,5 +1,5 @@
 import axios from 'axios';
-const endpointFlights = 'http://localhost:3000/vuelos';
+const endpointFlights = 'https://miniback-books-app-i9fd.onrender.com/vuelos';
 
 export const listFlights = async () => {
     try {

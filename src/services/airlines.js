@@ -1,5 +1,5 @@
 import axios from 'axios';
-const endpointAirlines = 'http://localhost:3000/aerolineas';
+const endpointAirlines = 'https://miniback-books-app-i9fd.onrender.com/aerolineas';
 
 export const FindAirlinesById = async (id) => {
     try {

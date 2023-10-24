@@ -46,7 +46,7 @@ const Register = () => {
             let regobj = { id, name, password, email, phone, date, gender };
             if (IsValidate()) {
             //console.log(regobj);
-            fetch("http://localhost:3000/user", {
+            fetch("https://miniback-books-app-i9fd.onrender.com/user", {
                 method: "POST",
                 headers: { 'content-type': 'application/ json' },
                 body: JSON.stringify(regobj)

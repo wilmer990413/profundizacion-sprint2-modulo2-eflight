@@ -12,7 +12,7 @@ const Login = () => {
     const ProceedLogin = (e) => {
         e.preventDefault();
         if (validate()) {
-            fetch("http://localhost:3000/user/" + username).then((res) => {
+            fetch("https://miniback-books-app-i9fd.onrender.com/user/" + username).then((res) => {
                 return res.json();
             }).then((resp) => {
                 const respJSON = JSON.stringify(resp);
