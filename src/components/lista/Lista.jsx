@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Columna from "../columna/Columna";
+import { InfoOutlineIcon } from "@chakra-ui/icons";
 
 const Lista = () => {
   const [detallesPrecio, setDetallesPrecio] = useState(null);
@@ -22,7 +23,6 @@ const Lista = () => {
 
   return (
     <div>
-      <hr />
       <Columna
         label="Básica para Adultos"
         valor={`${detallesPrecio.tarifa_basica_adultos}`}

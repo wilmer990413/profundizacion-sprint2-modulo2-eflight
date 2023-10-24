@@ -2,7 +2,7 @@ import React from "react";
 import { Box, Text, Icon } from "@chakra-ui/react";
 
 const Title = (props) => {
-  const { iconName, text, iconColor, textColor } = props;
+  const { iconName, text, iconColor, textColor, textSize } = props;
 
   return (
     <Box display="flex" alignItems="center">
@@ -12,7 +12,7 @@ const Title = (props) => {
         color={iconColor}
         mr={2}
       />
-      <Text fontSize={["sm", "md", "lg"]} color={textColor}>
+      <Text fontSize={textSize} color={textColor}>
         {text}
       </Text>
     </Box>
