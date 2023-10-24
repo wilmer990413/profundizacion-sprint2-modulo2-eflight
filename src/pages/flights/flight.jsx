@@ -41,7 +41,7 @@ function Flight({flights}) {
                     <span>/ pax</span>
                 </div>
                 <Link className='flights__content--price--button'  
-                    to={{pathname: '/MyBooking',
+                    to={{pathname: '/profundizacion-sprint2-modulo2-eflight/MyBooking',
                     state: { flights }}} >Choose</Link>
             </div>
         </div>

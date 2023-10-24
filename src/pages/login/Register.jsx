@@ -118,7 +118,7 @@ const Register = () => {
                         </div>
                         <div className="card-footer">
                             <button type="submit" className="btn btn-primary">Registrar</button> |
-                            <Link to={'/login'} className="btn btn-danger">Cerrar</Link>
+                            <Link to={'/profundizacion-sprint2-modulo2-eflight/login'} className="btn btn-danger">Cerrar</Link>
                         </div>
                     </div>
                 </form>

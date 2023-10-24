@@ -175,7 +175,7 @@ function Formulario() {
           />
         </div>
         <Button colorScheme="green">
-          <Link to="/Payments">Mostrar Datos</Link>
+          <Link to="/profundizacion-sprint2-modulo2-eflight/Payments">Mostrar Datos</Link>
         </Button>
       </form>
     </>

@@ -67,7 +67,7 @@ const Login = () => {
                         </div>
                         <div className="card-footer">
                             <button type="submit" className="btn btn-primary">Iniciar Sesion</button> |
-                            <Link className="btn btn-success" to={'/register'}>Nuevo Usuario</Link>
+                            <Link className="btn btn-success" to={'/profundizacion-sprint2-modulo2-eflight/register'}>Nuevo Usuario</Link>
                         </div>
                     </div>
                 </form>

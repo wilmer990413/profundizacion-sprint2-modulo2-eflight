@@ -16,13 +16,13 @@ export const NavRoutes = () => {
       <NavBar />
       <ToastContainer theme='colored' position='top-center'></ToastContainer>
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/home" element={<Home />} />
-        <Route path="/flights" element={<Flights />} />
-        <Route path="/login" element={<Login />} />
-        <Route path='/register' element={<Register/>}/>
-        <Route path="/MyBooking" element={<MyBooking />} />
-        <Route path="/Payments" element={<Payments />}/>
+        <Route path="/profundizacion-sprint2-modulo2-eflight/" element={<Home />} />
+        <Route path="/profundizacion-sprint2-modulo2-eflight/home" element={<Home />} />
+        <Route path="/profundizacion-sprint2-modulo2-eflight/flights" element={<Flights />} />
+        <Route path="/profundizacion-sprint2-modulo2-eflight/login" element={<Login />} />
+        <Route path="/profundizacion-sprint2-modulo2-eflight/register" element={<Register/>}/>
+        <Route path="/profundizacion-sprint2-modulo2-eflight/MyBooking" element={<MyBooking />} />
+        <Route path="/profundizacion-sprint2-modulo2-eflight/Payments" element={<Payments />}/>
       </Routes>
       <Footer />
     </>
