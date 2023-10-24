@@ -8,6 +8,7 @@ import SelectWithValidation from "../select/SelectWithValidation";
 import { Link } from "react-router-dom";
 import CustomAlert from "../alert/CustomAlert";
 import { Button } from "@chakra-ui/react";
+import axios from "axios";
 
 function Formulario() {
   const { formData, handleInputChange, submitForm } = useFormData();
@@ -43,7 +44,7 @@ function Formulario() {
             name="nombre"
             onChange={handleInputChange}
             width="300px"
-            placeholder="Texto"
+            placeholder="Input Text"
             value={formData.nombre}
           />
 
@@ -53,7 +54,7 @@ function Formulario() {
             name="Surname"
             onChange={handleInputChange}
             width="300px"
-            placeholder="Texto"
+            placeholder="Input Text"
             value={formData.Surname}
           />
         </div>
@@ -95,17 +96,17 @@ function Formulario() {
         />
         <CustomAlert />
         <InputWithValidation
-          label="passportNumber"
+          label="passport Number"
           type="text"
           name="passportNumber"
           value={formData.passportNumber}
           onChange={handleInputChange}
           width="600px"
-          placeholder="Texto"
+          placeholder="Input text"
         />
         <div className="cont">
           <SelectWithValidation
-            label="countryIssue"
+            label="Country of Issue"
             name="countryIssue"
             value={formData.countryIssue}
             onChange={handleInputChange}
@@ -114,15 +115,20 @@ function Formulario() {
             placeholder="input Texto"
           />
           <InputWithValidation
-            label="passportDate"
+            label="Passport Expiry Date"
             type="date"
             name="passportDate"
             value={formData.passportDate}
             onChange={handleInputChange}
             width="300px"
-            placeholder="input Texto"
+            placeholder="Passport Expiry Date"
           />
         </div>
+        <Title
+          text="Contact details"
+          textColor="blue.500"
+          textSize="30px" // Tamaño del texto
+        />
 
         <div className="cont">
           <InputWithValidation
@@ -132,7 +138,7 @@ function Formulario() {
             value={formData.nombre}
             onChange={handleInputChange}
             width="300px"
-            placeholder="Texto"
+            placeholder="Input text"
           />
 
           <InputWithValidation
@@ -142,7 +148,7 @@ function Formulario() {
             value={formData.Surname}
             onChange={handleInputChange}
             width="300px"
-            placeholder="Texto"
+            placeholder="Input text"
           />
         </div>
         <div className="cont">
@@ -156,26 +162,26 @@ function Formulario() {
             placeholder="input Texto"
           />
           <InputWithValidation
-            label="Fecha de Nacimiento"
-            type="date"
-            name="birthDate"
-            value={formData.birthDate}
+            label="Email"
+            type="Email"
+            name="Email"
+            value={formData.Email}
             onChange={handleInputChange}
             width="200px"
-            placeholder="input Texto"
+            placeholder="Input text"
           />
           <InputWithValidation
-            label="phoneNumber"
-            type="number"
+            label="Phone number"
+            type="numero"
             name="phoneNumber"
             value={formData.phoneNumber}
             onChange={handleInputChange}
             width="200px"
-            placeholder="Texto"
+            placeholder="Input text"
           />
         </div>
         <Button colorScheme="green">
-          <Link to="/Payments">Mostrar Datos</Link>
+          <Link to="/payments">Enviar</Link>
         </Button>
       </form>
     </>

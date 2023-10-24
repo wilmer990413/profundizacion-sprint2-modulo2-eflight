@@ -1,6 +1,6 @@
 import React from "react";
 import Lista from "../../components/lista/Lista";
-import FromPayments from "../../components/payments/FromPayments";
+import FromPayments from "../../components/FromPayments/FromPayments";
 import "./Payments.css";
 
 const Payments = () => {

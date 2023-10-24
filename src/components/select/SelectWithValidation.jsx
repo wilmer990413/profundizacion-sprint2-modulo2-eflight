@@ -18,7 +18,7 @@ function SelectWithValidation({
         name={name}
         width={{ base: "100%", md: width }}
         borderRadius={{ base: "10px", md: "55px" }}
-        bg={"#e8f0fd"} // Establecer el color de fondo
+        bg={"#e8f0fd"}
         _placeholder={{ color: "#bdc0c7" }}
         placeholder={`Select ${label}`}
       >

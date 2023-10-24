@@ -6,12 +6,6 @@ const Title = (props) => {
 
   return (
     <Box display="flex" alignItems="center">
-      <Icon
-        as={iconName}
-        boxSize={["10px", "30px", "50px"]}
-        color={iconColor}
-        mr={2}
-      />
       <Text fontSize={textSize} color={textColor}>
         {text}
       </Text>

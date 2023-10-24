@@ -14,13 +14,13 @@ const FromPayments = () => {
         text="Payment method"
         iconColor="blue.500"
         textColor="blue.500"
-        textSize="30px" // Tamaño del texto
+        textSize="30px"
       />
       <div className="cont">
         <InputWithValidation
-          label="Nombre"
+          label="Name on card"
           type="text"
-          name="nombre"
+          name="Name on card"
           width="300px"
           placeholder="Enter name on card"
         />
@@ -72,9 +72,9 @@ const FromPayments = () => {
           placeholder="Select"
         />
       </div>
-      <Button colorScheme="green">Mostrar Datos</Button>
+      <Button colorScheme="green"> Enviar</Button>
     </form>
   );
 };
 
-export default FromPayments;
+export default c;
