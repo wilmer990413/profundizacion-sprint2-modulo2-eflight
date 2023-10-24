@@ -25,31 +25,22 @@ const Lista = () => {
     <div>
       <Columna
         label="Básica para Adultos"
-        valor={`${detallesPrecio.tarifa_basica_adultos}`}
-        colorTextoLeft="blue"
-        colorTextoRight="red"
+        valor={`$${detallesPrecio.tarifa_basica_adultos}`}
       />
-      <Columna
-        label="Impuesto"
-        valor={`${detallesPrecio.precio}`}
-        colorTextoLeft="blue"
-        colorTextoRight="red"
-      />
+      <Columna label="Impuesto" valor={`$${detallesPrecio.precio}`} />
       <Columna
         label="Precio Total Regular"
-        valor={`${detallesPrecio.precio_total_regular}`}
-        colorTextoLeft="blue"
-        colorTextoRight="red"
+        valor={`$${detallesPrecio.precio_total_regular}`}
       />
       <Columna
         label="Ahorro"
-        valor={`${detallesPrecio.ahorro}`}
+        valor={`$${detallesPrecio.ahorro}`}
         colorTextoLeft="blue"
         colorTextoRight="red"
       />
       <Columna
         label="total"
-        valor={`${detallesPrecio.precio}`}
+        valor={`$${detallesPrecio.precio}`}
         colorTextoLeft="blue"
         colorTextoRight="red"
       />

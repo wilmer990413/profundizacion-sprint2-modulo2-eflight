@@ -24,6 +24,7 @@ function Formulario() {
         onSubmit={handleFormSubmit}
         style={{ display: "flex", flexDirection: "column" }}
       >
+        <h1>MyBoking</h1>
         <Title
           iconName={InfoOutlineIcon}
           text="Passenger details"
