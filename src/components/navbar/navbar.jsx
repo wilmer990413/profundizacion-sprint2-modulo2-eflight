@@ -13,22 +13,22 @@ const NavBar = () => {
         <div />
         <ul className="main-container">
           <li className="menu-item">
-            <Link to="/" className="menu-link">
+            <Link to="/profundizacion-sprint2-modulo2-eflight/" className="menu-link">
               Home
             </Link>
           </li>
           <li className="menu-item">
-            <Link to="/login" className="menu-link">
+            <Link to="/profundizacion-sprint2-modulo2-eflight/login" className="menu-link">
               Login
             </Link>
           </li>
           <li className="menu-item">
-            <Link to="/flights" className="menu-link">
+            <Link to="/profundizacion-sprint2-modulo2-eflight/flights" className="menu-link">
               Flights
             </Link>
           </li>
           <li className="menu-item">
-            <Link to="/MyBooking" className="menu-link">
+            <Link to="/profundizacion-sprint2-modulo2-eflight/MyBooking" className="menu-link">
               MyBoking
             </Link>
           </li>
