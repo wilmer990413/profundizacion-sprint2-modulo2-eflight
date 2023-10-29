@@ -1,28 +1,19 @@
+// SelectWithValidation.js
 import React from "react";
 import { FormControl, FormLabel, Select } from "@chakra-ui/react";
 
-function SelectWithValidation({
-  label,
-  name,
-  value,
-  onChange,
-  options,
-  width,
-}) {
+function SelectWithValidation(props) {
   return (
     <FormControl>
-      <FormLabel>{label}</FormLabel>
+      <FormLabel>{props.label}</FormLabel>
       <Select
-        value={value}
-        onChange={onChange}
-        name={name}
-        width={{ base: "100%", md: width }}
+        {...props} // Utiliza el operador de propagación para pasar todas las props
         borderRadius={{ base: "10px", md: "55px" }}
         bg={"#e8f0fd"}
         _placeholder={{ color: "#bdc0c7" }}
-        placeholder={`Select ${label}`}
+        placeholder={`Select ${props.label}`}
       >
-        {options.map((option, index) => (
+        {props.options.map((option, index) => (
           <option key={index}>{option}</option>
         ))}
       </Select>

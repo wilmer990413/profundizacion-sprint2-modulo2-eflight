@@ -1,13 +1,21 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
-import NavRoutes from "./routes/routes.jsx";
-import { BrowserRouter } from "react-router-dom";
-import { ChakraProvider } from "@chakra-ui/react";
+import ReactDOM from "react-dom";
+import { BrowserRouter as Router } from "react-router-dom";
+import { AppStateProvider } from "./context/AppStateContext"; // Importa el AppStateProvider
 
-ReactDOM.createRoot(document.getElementById("root")).render(
+import NavRoutes from "./routes/routes";
+import { ChakraProvider } from "@chakra-ui/react";
+import { ApiProvider } from "./context/AppListaContext";
+
+ReactDOM.render(
   <ChakraProvider>
-    <BrowserRouter>
-      <NavRoutes />
-    </BrowserRouter>
-  </ChakraProvider>
+    <Router>
+      <ApiProvider>
+        <AppStateProvider>
+          <NavRoutes />
+        </AppStateProvider>
+      </ApiProvider>
+    </Router>
+  </ChakraProvider>,
+
+  document.getElementById("root")
 );
