@@ -10,36 +10,11 @@ const NavBar = () => {
   return (
     <>
       <nav className="navbar">
-        <div />
-        <ul className="main-container">
-          <li className="menu-item">
-            <Link to="/profundizacion-sprint2-modulo2-eflight/" className="menu-link">
-              Home
-            </Link>
-          </li>
-          <li className="menu-item">
-            <Link to="/profundizacion-sprint2-modulo2-eflight/login" className="menu-link">
-              Login
-            </Link>
-          </li>
-          <li className="menu-item">
-            <Link to="/profundizacion-sprint2-modulo2-eflight/flights" className="menu-link">
-              Flights
-            </Link>
-          </li>
-          <li className="menu-item">
-            <Link to="/profundizacion-sprint2-modulo2-eflight/MyBooking" className="menu-link">
-              MyBoking
-            </Link>
-          </li>
-        </ul>
-
         <div className="main-container">
-          <div className="image-wrapper">
-            <div className="flight-info">
+            <Link className="flight-info" to="/profundizacion-sprint2-modulo2-eflight/home">
               <img className="mainIcon" src={icon} alt="Flight Image" />
               <div className="flight-name">E-flight</div>
-            </div>
+            </Link>
             <div className="currency-info">
               <div className="currency">USD</div>
               <img
@@ -48,9 +23,10 @@ const NavBar = () => {
                 alt="Currency Icon"
               />
               <img className="currencyIcon" src={noti} alt="Notification" />
-              <img className="currencyIcon" src={userPhoto} alt="User photo" />
+              <Link to="/profundizacion-sprint2-modulo2-eflight/login">
+                <img className="currencyIcon" src={userPhoto} alt="User photo" />
+              </Link>
             </div>
-          </div>
         </div>
       </nav>
       <Outlet />
