@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_BOOKINK = "http://localhost:3000/";
+const API_BOOKINK = "https://miniback-books-app-i9fd.onrender.com/";
 const endpointsTickets = "tickets";
 
 export const getBooking = async () => {

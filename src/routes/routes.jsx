@@ -9,6 +9,7 @@ import Register from '../pages/login/Register';
 import { ToastContainer } from 'react-toastify';
 import MyBooking from "../pages/myBooking/MyBoking";
 import Payments from "../pages/payments/Payments";
+import Booking from "../components/booking/Booking";
 
 export const NavRoutes = () => {
   return (
@@ -22,6 +23,7 @@ export const NavRoutes = () => {
         <Route path="/profundizacion-sprint2-modulo2-eflight/login" element={<Login />} />
         <Route path="/profundizacion-sprint2-modulo2-eflight/register" element={<Register/>}/>
         <Route path="/profundizacion-sprint2-modulo2-eflight/MyBooking" element={<MyBooking />} />
+        <Route path="/profundizacion-sprint2-modulo2-eflight/booking" element={<Booking />} />
         <Route path="/profundizacion-sprint2-modulo2-eflight/Payments" element={<Payments />}/>
       </Routes>
       <Footer />
