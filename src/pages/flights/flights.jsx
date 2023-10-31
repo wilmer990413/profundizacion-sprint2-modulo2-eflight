@@ -24,13 +24,18 @@ import {
     Checkbox,
     CheckboxGroup,
     Progress,Text 
-} from '@chakra-ui/react'
+} from '@chakra-ui/react';
+import { useApi } from "../../context/AppListaContext";
 
 function Flights() {
     const [data, setData] = useState([]);
     const [loading, setLoading] = useState(true);
     const [ascendingOrder, setAscendingOrder] = useState();
     const [range, setRange] = useState([0, 22]);
+    const { selectionFlight } = useApi();
+    const handleUpdate = (flight) => {
+        selectionFlight(flight);
+    };
     const handleSliderChange = (newRange) => {
         setRange(newRange);
     };
@@ -216,10 +221,10 @@ function Flights() {
                         <Progress colorScheme='whatsapp' isIndeterminate /> : 
                         !ascendingOrder?
                             data.map((element, index)=>{
-                                return  <Flight key={index} flights={element}/>
+                                return  <Flight key={index} flight={element} action={handleUpdate}/>
                             })
                             : data.map((element, index)=>{
-                                return  <Flight key={index} flights={element}/>
+                                return  <Flight key={index} flight={element} action={handleUpdate}/>
                             })
                     }
                 </article>

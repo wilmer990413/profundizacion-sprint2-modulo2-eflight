@@ -144,7 +144,7 @@ function Formulario() {
             placeholder="Input text"
           />
         </div>
-        <Link to="/payments">
+        <Link to="/profundizacion-sprint2-modulo2-eflight/payments">
           <Button colorScheme="green" w="100%">
             Enviar
           </Button>

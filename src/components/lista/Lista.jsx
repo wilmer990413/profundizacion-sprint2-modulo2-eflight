@@ -1,21 +1,15 @@
 import React, { useState, useEffect } from "react";
 import Columna from "../columna/Columna";
-import { InfoOutlineIcon } from "@chakra-ui/icons";
+import { useApi } from "../../context/AppListaContext";
 import "./Lista.css";
 
 const Lista = () => {
   const [detallesPrecio, setDetallesPrecio] = useState(null);
-
+  const { flight } = useApi();
+  console.log(flight);
   useEffect(() => {
-    fetch("https://miniback-books-app-i9fd.onrender.com/vuelos")
-      .then((response) => response.json())
-      .then((data) => {
-        const detallesPrecio = data[0].detalles_precio;
-        setDetallesPrecio(detallesPrecio);
-      })
-      .catch((error) => {
-        console.error("Error al obtener datos del servidor:", error);
-      });
+    const detallesPrecio = flight.detalles_precio;
+    setDetallesPrecio(detallesPrecio);
   }, []);
 
   if (!detallesPrecio) {

@@ -8,7 +8,7 @@ import { BrowserRouter as Router } from "react-router-dom";
 import { AppStateProvider } from "./context/AppStateContext";
 import { ApiProvider } from "./context/AppListaContext";
 
-ReactDOM.render(
+ReactDOM.createRoot(document.getElementById('root')).render(
   <ChakraProvider>
     <Router>
       <ApiProvider>
@@ -17,7 +17,5 @@ ReactDOM.render(
         </AppStateProvider>
       </ApiProvider>
     </Router>
-  </ChakraProvider>,
-
-  document.getElementById("root")
+  </ChakraProvider>
 );

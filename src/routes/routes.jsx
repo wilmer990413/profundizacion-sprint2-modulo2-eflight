@@ -24,7 +24,7 @@ export const NavRoutes = () => {
         <Route path="/profundizacion-sprint2-modulo2-eflight/register" element={<Register/>}/>
         <Route path="/profundizacion-sprint2-modulo2-eflight/MyBooking" element={<MyBooking />} />
         <Route path="/profundizacion-sprint2-modulo2-eflight/booking" element={<Booking />} />
-        <Route path="/profundizacion-sprint2-modulo2-eflight/Payments" element={<Payments />}/>
+        <Route path="/profundizacion-sprint2-modulo2-eflight/payments" element={<Payments />}/>
       </Routes>
       <Footer />
     </>

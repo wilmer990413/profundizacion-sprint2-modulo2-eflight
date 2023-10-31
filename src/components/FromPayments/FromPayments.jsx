@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import InputWithValidation from "../input/InputWithValidation";
-import { InfoOutlineIcon } from "@chakra-ui/icons";
 import Title from "../title/Title";
 import "./FromPayments.css";
 import SelectWithValidation from "../select/SelectWithValidation";
 import { Button, Checkbox } from "@chakra-ui/react";
+import { Link } from 'react-router-dom'
 
 const FromPayments = () => {
   const [paymentMethods, setPaymentMethods] = useState([]);
@@ -18,7 +18,7 @@ const FromPayments = () => {
 
   useEffect(() => {
     // Cargar los métodos de pago desde el servidor JSON
-    fetch("http://localhost:3001/metodos_de_pago")
+    fetch("https://miniback-books-app-i9fd.onrender.com/metodos_de_pago")
       .then((response) => response.json())
       .then((data) => setPaymentMethods(data));
   }, []);
@@ -30,7 +30,6 @@ const FromPayments = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Envía el formulario con los datos a tu servidor o realiza las acciones necesarias.
     console.log("Formulario enviado:", formData);
   };
 
@@ -89,7 +88,7 @@ const FromPayments = () => {
       </div>
       <Checkbox defaultChecked>Use the same address as billing info</Checkbox>
       <Button type="submit" colorScheme="green">
-        Enviar
+        <Link to="/profundizacion-sprint2-modulo2-eflight/booking">Enviar</Link>
       </Button>
     </form>
   );

@@ -2,26 +2,58 @@ import React, { useEffect, useState } from 'react'
 import './style.scss'
 import avion from './image/avion.svg'
 import { getBooking } from './conexionApi'
+import { FindFlightById } from '../../services/flights.js'
 
 
 
 const BookingLeft = () => {
     const [showBooking, setShowBooking] = useState([]);
-
+    const [showFlight, setShowFlight] = useState({
+        origen: "",
+        destino: "",
+        fecha_salida: "",
+        fecha_llegada: ""
+    });
+    const [fecha, setFecha] = useState(
+        {
+            ida: {
+                fecha: "",
+                hora: ""
+            },
+            vuelta: {
+                fecha: "",
+                hora: ""
+            }
+        }
+    );
     const infoTicket = async () => {
         const ticket = await getBooking('showBooking');
         const myBooking = ticket[ticket.length - 1];
         setShowBooking(myBooking);
-        
-        }
+        const vuelo = await FindFlightById(myBooking.vuelo_id);
+        setShowFlight(vuelo);
+        const fechaIda = new Date(vuelo.fecha_salida);
+        const fechaVuelta = new Date(vuelo.fecha_llegada);
+        const fechaAux = {
+            ida: {
+                fecha: fechaIda.toISOString().split('T')[0],
+                hora: fechaIda.getHours() + ':' + fechaIda.getMinutes()
+            },
+            vuelta: {
+                fecha: fechaVuelta.toISOString().split('T')[0],
+                hora: fechaVuelta.getHours() + ':' + fechaVuelta.getMinutes()
+            }
+        };
+        setFecha(fechaAux);
+    }
     useEffect(() => {
-        infoTicket()
+        infoTicket();
     }, [])
-    
-    console.log(showBooking)
-        
-    return (
-    <section className='booking__left'>
+    if (!showBooking && !showFlight) {
+        return <div>Cargando...</div>;
+    } else {
+        return (
+            <section className='booking__left'>
                 <h3>My booking</h3>
                 <div className='booking__left--line' >
                     <div></div>
@@ -32,13 +64,11 @@ const BookingLeft = () => {
                 </div>
                 <div className='booking__left--info' >
                     <p className='booking__left--info__booked'><svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M6.85742 12L10.286 15.4286L17.1431 8.57144" stroke="#6C6CFF" stroke-width="2.05714" stroke-miterlimit="10" stroke-linecap="square" />
-                        <path d="M11.9999 21.4286C17.2071 21.4286 21.4284 17.2073 21.4284 12C21.4284 6.79276 17.2071 2.57144 11.9999 2.57144C6.7926 2.57144 2.57129 6.79276 2.57129 12C2.57129 17.2073 6.7926 21.4286 11.9999 21.4286Z" stroke="#6C6CFF" stroke-width="2.05714" stroke-miterlimit="10" stroke-linecap="square" />
+                        <path d="M6.85742 12L10.286 15.4286L17.1431 8.57144" stroke="#6C6CFF" strokeWidth="2.05714" strokeMiterlimit="10" strokeLinecap="square" />
+                        <path d="M11.9999 21.4286C17.2071 21.4286 21.4284 17.2073 21.4284 12C21.4284 6.79276 17.2071 2.57144 11.9999 2.57144C6.7926 2.57144 2.57129 6.79276 2.57129 12C2.57129 17.2073 6.7926 21.4286 11.9999 21.4286Z" stroke="#6C6CFF" strokeWidth="2.05714" strokeMiterlimit="10" strokeLinecap="square" />
                     </svg>Your flight is booked sucessflly!</p>
                     <p className='booking__left--info__present'>Present E-ticket and valid indentification at check-in</p>
                 </div>
-               
-        
                 <div className='booking__left--ticket'>
                     <div className='booking__left--ticket__info'>
                         <div className='booking__left--ticket__info--aerolinea'>
@@ -66,31 +96,25 @@ const BookingLeft = () => {
                         </div>
                         <div className='booking__left--ticket__info--avion'><img src={avion} alt="" />E-flight</div>
                     </div>
-                  
-
-                  
                     <div>
-                        Passenger: <span>{showBooking.nombre_pasajero.nombre} {showBooking.nombre_pasajero.apellido}</span>
+                        Passenger: <span>{showBooking.nombre} {showBooking.apellido}</span>
                         </div>
-                         
-                
                     <div className='booking__left--ticket__class'>
                         <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M1.66699 12.6667L14.3337 12.6667V14L1.66699 14L1.66699 12.6667ZM12.8937 10.5667C13.427 10.7067 13.9737 10.3933 14.1203 9.86001C14.2603 9.32668 13.947 8.78001 13.4137 8.63334L9.87366 7.68668L8.03366 1.67334L6.74699 1.33334L6.74699 6.85334L3.43366 5.96668L2.81366 4.42001L1.84699 4.16001L1.84699 7.60668L12.8937 10.5667Z" fill="#FF912B" />
                         </svg>
-                       
                         <span>Economy</span>
                     </div>
                     <div className='booking__left--ticket__infoCity' >
                         <div className='booking__left--ticket__infoCity--city'>
-                            <span className='booking__left--ticket__infoCity--city__hour'>{showBooking.booking.hora1}</span>
-                            <span className='booking__left--ticket__infoCity--city__origin'>{showBooking.booking.origen}</span>
-                            <span className='booking__left--ticket__infoCity--city__date'>{showBooking.booking.fecha_salida}</span>
+                            <span className='booking__left--ticket__infoCity--city__hour'>{fecha.ida.hora}</span>
+                            <span className='booking__left--ticket__infoCity--city__origin'>{showFlight.origen}</span>
+                            <span className='booking__left--ticket__infoCity--city__date'>{fecha.ida.fecha}</span>
                         </div>
                         <div className='booking__left--ticket__infoCity--city'>
-                            <span className='booking__left--ticket__infoCity--city__hour'>{showBooking.booking.hora2}</span>
-                            <span className='booking__left--ticket__infoCity--city__origin'>{showBooking.booking.destino}</span>
-                            <span className='booking__left--ticket__infoCity--city__date'>{showBooking.booking.fecha_llegada}</span>
+                            <span className='booking__left--ticket__infoCity--city__hour'>{fecha.vuelta.hora}</span>
+                            <span className='booking__left--ticket__infoCity--city__origin'>{showFlight.destino}</span>
+                            <span className='booking__left--ticket__infoCity--city__date'>{fecha.vuelta.fecha}</span>
                         </div>
                         <div className='booking__left--ticket__infoCity--idBooking'>
                             <span className='booking__left--ticket__infoCity--idBooking--text'>Booking ID</span>
@@ -118,10 +142,9 @@ const BookingLeft = () => {
                         <span className='booking__left--ticket__infoChecking--allTime'>*All time displayed are local</span>
                     </div>
                 </div>
-                
-             
             </section>
-  )
+        )
+    }
 }
 
 export default BookingLeft
