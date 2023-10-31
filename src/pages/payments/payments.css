@@ -1,4 +1,4 @@
-.my-booking-container {
+.FromPayments-container {
     display: flex; /* Establece el diseño como flexbox */
     align-items: flex-start; /* Alinea los elementos en la parte superior */
     margin: 0; /* Quita el margen */
@@ -6,12 +6,11 @@
     gap: 30px;
   }
   
-  .Formulario-container {
-    
+  .FromPayments-container{
     flex: 1; /* Toma el espacio disponible */
   }
   
-  .lista-container {
+  .listaFromPayments-container {
     text-align: left;
     flex: 1; /* Toma el espacio disponible */
   }

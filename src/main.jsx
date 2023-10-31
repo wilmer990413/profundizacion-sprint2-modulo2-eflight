@@ -1,16 +1,23 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import NavRoutes from './routes/routes.jsx';
-import {BrowserRouter} from "react-router-dom";
 import {ChakraProvider} from '@chakra-ui/react';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import 'react-toastify/dist/ReactToastify.css';
+import { BrowserRouter as Router } from "react-router-dom";
+import { AppStateProvider } from "./context/AppStateContext";
+import { ApiProvider } from "./context/AppListaContext";
 
-ReactDOM.createRoot(document.getElementById("root")).render(
+ReactDOM.render(
   <ChakraProvider>
-    <BrowserRouter>
-      <NavRoutes />
-    </BrowserRouter>
-  </ChakraProvider>
-  ,
-)
+    <Router>
+      <ApiProvider>
+        <AppStateProvider>
+          <NavRoutes />
+        </AppStateProvider>
+      </ApiProvider>
+    </Router>
+  </ChakraProvider>,
+
+  document.getElementById("root")
+);

@@ -5,13 +5,14 @@ const useFormData = () => {
   const initialFormState = {
     nombre: "",
     Surname: "",
-    Title: "Selects",
+    Title: "",
     birthDate: "",
     country: "Selects",
     passportNumber: "",
     countryIssue: "Selects",
     passportDate: "",
     phoneNumber: "",
+    Email: "",
   };
 
   const [formData, setFormData] = useState(initialFormState);
@@ -21,17 +22,15 @@ const useFormData = () => {
     setFormData({ ...formData, [name]: value });
   };
 
-  const submitForm = () => {
-    if (formData.nombre && formData.Surname && formData.country) {
-      // Realizar una solicitud POST al servidor JSON con Axios
-      axios
-        .post("http://localhost:301/tickets", formData)
-        .then((response) => {
-          console.log("Datos guardados en el servidor:", response.data);
-        })
-        .catch((error) => {
-          console.error("Error al guardar los datos:", error);
-        });
+  
+  const submitForm = async (e) => {
+    e.preventDefault();
+
+    try {
+      const response = await axios.post("http://localhost:3001/tickets/", formData);
+      console.log("Datos guardados en el servidor:", response.data);
+    } catch (error) {
+      console.error("Error al guardar los datos:", error);
     }
   };
 
