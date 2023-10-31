@@ -87,9 +87,9 @@ const FromPayments = () => {
         />
       </div>
       <Checkbox defaultChecked>Use the same address as billing info</Checkbox>
-      <Button type="submit" colorScheme="green">
-        <Link to="/profundizacion-sprint2-modulo2-eflight/booking">Enviar</Link>
-      </Button>
+      <Link to="/profundizacion-sprint2-modulo2-eflight/booking">
+        <Button type="submit" colorScheme="green"> Enviar </Button>
+      </Link>
     </form>
   );
 };
