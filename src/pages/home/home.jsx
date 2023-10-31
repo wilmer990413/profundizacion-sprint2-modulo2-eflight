@@ -17,6 +17,7 @@ import losAngeles from '../../../public/losAngeles.png';
 import new1 from '../../../public/new1.png';
 import new2 from '../../../public/new2.png';
 import new3 from '../../../public/new3.png';
+import { Link } from "react-router-dom";
 
 const Home = () => {
   const [fromCountry, setFromCountry] = useState(null);
@@ -114,7 +115,7 @@ const Home = () => {
             </select>
           </div>
           <button className="lsSearchButton" onClick={handleSearch}>
-            <i className="fa fa-search"></i> Search
+            <i className="fa fa-search"></i> <Link to="/profundizacion-sprint2-modulo2-eflight/flights" >Search</Link>
           </button>
         </div>
         
